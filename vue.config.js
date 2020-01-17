@@ -15,11 +15,13 @@ module.exports = {
         },
     },
 
-    publicPath: undefined,
+    publicPath: process.env.NODE_ENV === 'production'
+    ? '/calculator/'
+    : '/',
     outputDir: undefined,
     assetsDir: undefined,
     runtimeCompiler: undefined,
     productionSourceMap: undefined,
     parallel: undefined,
-    lintOnSave: false
+    lintOnSave: false,
 };
