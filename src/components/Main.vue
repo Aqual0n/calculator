@@ -52,7 +52,7 @@
                 +e.BUTTON.input--button(
                     v-on:click="toggleInputMode"
                     v-if="!customInput"
-                ) ...или введите вручную
+                ) ...или введите вручную сюда
                 +e.INPUT.input--divider(
                     v-model="divider"
                     v-if="customInput"
@@ -72,6 +72,11 @@
                 v-if="!dividable"
             ) Ближайшие числа, которые делятся - {{getClosest.closestMin}} и {{getClosest.closestMax}}
 
+
+            +e.H3.subtitle Внизу пример того как будет выглядеть текст:
+            +e.example(
+                :style="getStyle"
+            ) съешь ещё этих мягких французских булок, да выпей чаю съешь ещё этих мягких французских булок, да выпей чаю съешь ещё этих мягких французских булок, да выпей чаю съешь ещё этих мягких французских булок, да выпей чаю съешь ещё этих мягких французских булок, да выпей чаю
 </template>
 
 <script>
@@ -120,6 +125,11 @@
                         closestMin: closestMin,
                         closestMax: closestMax,
                     }
+                }
+            },
+            getStyle() {
+                return {
+                    fontSize: this.number + 'px',
                 }
             }
         }
@@ -172,6 +182,8 @@
         line-height: 48px;
         margin-top: 16px;
 
+        color: green;
+
         &.wrong {
             color: red;
         }
@@ -186,6 +198,14 @@
         & + & {
             margin-left: 8px;
         }
+    }
+
+    &__example {
+        border: 1px solid lightgray;
+        padding: 5px;
+        text-align: left;
+        margin: 0 auto;
+        width: 800px;
     }
 }
 </style>
