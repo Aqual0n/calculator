@@ -54,7 +54,7 @@
             return {
                 resultPresent: false,
                 result: null,
-                number: 96,
+                number: 32,
                 divider: 8,
                 wrong: false,
                 customInput: false,
