@@ -35,17 +35,11 @@
 
             +e.result(
                 :class="{'wrong': !dividable}"
-            ) {{getResult}}
+            ) {{getResult}} на {{divider}}
 
             +e.closest(
                 v-if="!dividable"
             ) Ближайшие числа, которые делятся - {{getClosest.closestMin}} и {{getClosest.closestMax}}
-
-
-            +e.H3.subtitle Внизу пример того как будет выглядеть текст:
-            +e.example(
-                :style="getStyle"
-            ) съешь ещё этих мягких французских булок, да выпей чаю съешь ещё этих мягких французских булок, да выпей чаю съешь ещё этих мягких французских булок, да выпей чаю съешь ещё этих мягких французских булок, да выпей чаю съешь ещё этих мягких французских булок, да выпей чаю
 </template>
 
 <script>
@@ -185,14 +179,6 @@
             -moz-box-shadow: inset 0px 0px 5px 1px rgba(0,0,0,0.75);
             box-shadow: inset 0px 0px 5px 1px rgba(0,0,0,0.75);
         }
-    }
-
-    &__example {
-        border: 1px solid lightgray;
-        padding: 5px;
-        text-align: left;
-        margin: 0 auto;
-        width: 800px;
     }
 }
 </style>
