@@ -9,46 +9,15 @@
 
             +e.wrapper
                 +e.fieldset
-                    +e.item
-                        +e.LABEL.radio-label(
-                            for="four"
-                        ) 4
-                        +e.INPUT.radio(
-                            type="radio"
-                            id="four"
-                            value="4"
-                            v-model="divider"
-                        )
-                    +e.item
-                        +e.LABEL.radio-label(
-                            for="eight"
-                        ) 8
-                        +e.INPUT.radio(
-                            type="radio"
-                            id="eight"
-                            value="8"
-                            v-model="divider"
-                        )
-                    +e.item
-                        +e.LABEL.radio-label(
-                            for="ten"
-                        ) 10
-                        +e.INPUT.radio(
-                            type="radio"
-                            id="ten"
-                            value="10"
-                            v-model="divider"
-                        )
-                    +e.item
-                        +e.LABEL.radio-label(
-                            for="twelve"
-                        ) 12
-                        +e.INPUT.radio(
-                            type="radio"
-                            id="twelve"
-                            value="12"
-                            v-model="divider"
-                        )
+                    +e.BUTTON.radio(
+                        v-on:click="divider = 4"
+                        :class="{'active': divider === 4}"
+                    ) 4
+                    +e.BUTTON.radio(
+                        v-on:click="divider = 8"
+                        :class="{'active': divider === 8}"
+                    ) 8
+
                 +e.BUTTON.input--button(
                     v-on:click="toggleInputMode"
                     v-if="!customInput"
@@ -173,10 +142,6 @@
         }
     }
 
-    &__label {
-        margin: 8px 0;
-    }
-
     &__result {
         font-size: 32px;
         line-height: 48px;
@@ -190,13 +155,35 @@
     }
 
     &__fieldset {
-        margin-bottom: 8px;
+        margin: 8px 0;
+        display: inline-block;
+        border-radius: 10px;
+        overflow: hidden;
+
+        border: 1px solid #000;
     }
 
-    &__item {
+    &__radio {
         display: inline-block;
+        border: none;
+        padding: 8px;
+
+        background-color: #fff;
+
         & + & {
-            margin-left: 8px;
+            border-left: 1px solid gray;
+        }
+
+        outline: none;
+
+        transition: .3s ease;
+        transition-property: box-shadow, background-color;
+
+        &.active {
+            background-color: lightgray;
+            -webkit-box-shadow: inset 0px 0px 5px 1px rgba(0,0,0,0.75);
+            -moz-box-shadow: inset 0px 0px 5px 1px rgba(0,0,0,0.75);
+            box-shadow: inset 0px 0px 5px 1px rgba(0,0,0,0.75);
         }
     }
 
